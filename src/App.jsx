@@ -3,6 +3,39 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { imprime, resta, soma } from './Calculadora'
+import {Usuarios} from './usuarios'
+
+let usuario = {
+  nome: Usuarios.nome,
+  sobrenome:Usuarios.sobrenome,
+  idade: Usuarios.idade,
+  adm: Usuarios.adm
+}
+
+function MyButton(){
+  return(
+    <>
+    <button>Acessar area Clinete</button>
+    </>
+  );
+}
+
+function MyButton2(){
+  return(
+    <>
+    <button>Accesar area ADM</button>
+    </>
+  );
+}
+
+const Qualbotao = () =>{
+  let rerotno = usuario.adm? <MyButton2/> : <MyButton/>;
+  return(
+    <>
+      {rerotno}
+    </>
+  )
+}
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +60,8 @@ function App() {
         </p>
         Soma:{imprime(soma(2,2))}
         Resta:{imprime(resta(5,2))}
+        <Qualbotao/>
+        
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
