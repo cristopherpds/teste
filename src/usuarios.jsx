@@ -10,8 +10,7 @@ let usuarios=[
 export default function Usuarios(){
     const saida = usuarios.map(user =>(
         <li key={user.nome}>
-            {user.nome}
-            {user.sobrenome}
+            {user.nome} {user.sobrenome}
         </li>
     ));
 

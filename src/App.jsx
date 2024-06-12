@@ -3,13 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { imprime, resta, soma } from './Calculadora'
-import {Usuarios} from './usuarios'
+import Usuarios from './usuarios'
 
 let usuario = {
-  nome: Usuarios.nome,
-  sobrenome:Usuarios.sobrenome,
-  idade: Usuarios.idade,
-  adm: Usuarios.adm
+  nome: "Cristopher",
+  sobrenome: "Paiva",
+  idade: 26,
+  adm: true
 }
 
 function MyButton(){
@@ -24,6 +24,7 @@ function MyButton2(){
   return(
     <>
     <button>Accesar area ADM</button>
+      <Usuarios/>
     </>
   );
 }
