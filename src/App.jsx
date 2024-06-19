@@ -1,9 +1,12 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { imprime, resta, soma } from './Calculadora'
+import { imprime, resta, soma } from './components/Calculadora'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Exercicios, { Postagens, Exercicios3 } from './components/Exercicios'
 import Usuarios from './usuarios'
+import Botao1 from './teste'
+
 
 let usuario = {
   nome: "Cristopher",
@@ -24,7 +27,6 @@ function MyButton2(){
   return(
     <>
     <button>Accesar area ADM</button>
-      <Usuarios/>
     </>
   );
 }
@@ -38,9 +40,7 @@ const Qualbotao = () =>{
   )
 }
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function HomePage() {
   return (
     <>
       <div>
@@ -53,21 +53,32 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
         Soma:{imprime(soma(2,2))}
         Resta:{imprime(resta(5,2))}
         <Qualbotao/>
-        
+        <Usuarios/>
+        <Botao1/>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/exercicios" element={<Exercicios />} />
+        <Route path="/exercicios2" element={<Postagens />} />
+        <Route path="/exercicios3" element={<Exercicios3 />} />
+      </Routes>
+    </Router>
   )
 }
 
